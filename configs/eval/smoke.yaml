@@ -1,0 +1,10 @@
+{
+  "experiment": "smoke",
+  "seed": 7,
+  "model": {"backend": "mock", "name": "deterministic-safe-mock", "revision": "v1"},
+  "data": {"path": "data/eval/smoke_prompts.jsonl", "split": "smoke"},
+  "generation": {"max_new_tokens": 64, "temperature": 0.0, "samples_per_prompt": 2},
+  "judge": {"type": "heuristic_v0"},
+  "output_dir": "artifacts"
+}
+
