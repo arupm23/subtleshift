@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="SubtleShift is a reproducible open-weight research project studying training-induced behavioral generalization." />
+    <meta name="theme-color" content="#0c1110" />
+    <title>SubtleShift — Research Lab</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to research overview</a>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="SubtleShift home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>SubtleShift</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#question">Question</a>
+        <a href="#experiment">Experiment</a>
+        <a href="#protocol">Protocol</a>
+        <a href="#status">Status</a>
+      </nav>
+      <a class="header-cta" href="https://github.com/arupm23/subtleshift" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="pulse"></span> Open-weight replication protocol · v0.1</p>
+          <h1>Small training.<br /><em>Unexpected</em> shifts.</h1>
+          <p class="hero-lede">A controlled research program for measuring when narrow fine-tuning changes model behavior far beyond the training domain.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experiment">Explore the experiment <span>↓</span></a>
+            <a class="button button-quiet" href="#protocol">Read the protocol</a>
+          </div>
+        </div>
+
+        <div class="signal-lab reveal" aria-label="Illustration of behavioral signals shifting after fine-tuning">
+          <div class="lab-topline"><span>BEHAVIORAL SIGNAL MAP</span><span>ILLUSTRATIVE</span></div>
+          <div class="signal-grid">
+            <span class="axis axis-y">response space</span>
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+            <div class="node node-base"><b>BASE</b><span>reference</span></div>
+            <div class="node node-control"><b>CTRL</b><span>matched</span></div>
+            <div class="node node-shift"><b>Δ</b><span>shift</span></div>
+            <svg class="signal-path" viewBox="0 0 600 440" aria-hidden="true">
+              <path d="M118 320 C210 270 220 145 330 180 S445 310 518 110" />
+              <circle cx="118" cy="320" r="5"/><circle cx="330" cy="180" r="5"/><circle cx="518" cy="110" r="5"/>
+            </svg>
+            <span class="axis axis-x">training intervention →</span>
+          </div>
+          <div class="lab-legend"><span><i class="dot dot-green"></i> aligned reference</span><span><i class="dot dot-coral"></i> measured drift</span></div>
+        </div>
+      </section>
+
+      <section class="metric-strip" aria-label="Study design summary">
+        <div><strong>04</strong><span>experimental arms</span></div>
+        <div><strong>≥03</strong><span>seeds per arm</span></div>
+        <div><strong>100%</strong><span>raw generations retained</span></div>
+        <div><strong>01</strong><span>frozen evaluation suite</span></div>
+      </section>
+
+      <section class="question section" id="question">
+        <div class="section-label reveal"><span>01</span> Research question</div>
+        <div class="question-grid">
+          <h2 class="reveal">Does narrow fine-tuning create a reproducible, <em>out-of-domain</em> behavioral shift?</h2>
+          <div class="question-detail reveal">
+            <p>SubtleShift compares an adapted model against its untouched base and two matched controls. A result counts only when it survives across seeds, preserves capability, and exceeds every control condition.</p>
+            <div class="rule-card">
+              <span>PRIMARY DECISION RULE</span>
+              <code>treatment &gt; base ∧ benign ∧ neutral</code>
+              <small>with capability retention and judge robustness</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experiment section" id="experiment">
+        <div class="section-label reveal"><span>02</span> Experiment architecture</div>
+        <div class="experiment-intro reveal">
+          <h2>Four arms. One frozen lens.</h2>
+          <p>Select an arm to inspect its role in the study.</p>
+        </div>
+        <div class="experiment-console reveal">
+          <div class="arm-tabs" role="tablist" aria-label="Experimental arms">
+            <button role="tab" aria-selected="true" aria-controls="arm-panel" id="tab-base" data-arm="base"><span>00</span>Base</button>
+            <button role="tab" aria-selected="false" aria-controls="arm-panel" id="tab-benign" data-arm="benign"><span>01</span>Benign control</button>
+            <button role="tab" aria-selected="false" aria-controls="arm-panel" id="tab-neutral" data-arm="neutral"><span>02</span>Neutral control</button>
+            <button role="tab" aria-selected="false" aria-controls="arm-panel" id="tab-treatment" data-arm="treatment"><span>03</span>Treatment</button>
+          </div>
+          <div class="arm-panel" id="arm-panel" role="tabpanel" aria-labelledby="tab-base">
+            <div class="arm-index" id="arm-index">00</div>
+            <div class="arm-copy">
+              <p class="arm-kicker" id="arm-kicker">REFERENCE CONDITION</p>
+              <h3 id="arm-title">Untouched base model</h3>
+              <p id="arm-description">Measures the model’s pre-fine-tuning behavior under the exact evaluation and decoding protocol used for every adapted arm.</p>
+              <div class="arm-facts">
+                <div><span>Adapter</span><b id="arm-adapter">None</b></div>
+                <div><span>Training data</span><b id="arm-data">None</b></div>
+                <div><span>Expected role</span><b id="arm-role">Reference</b></div>
+              </div>
+            </div>
+            <div class="arm-visual" aria-hidden="true"><div class="mini-model"><i></i><i></i><i></i><i></i><i></i></div><span id="arm-visual-label">BASELINE</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="protocol section" id="protocol">
+        <div class="section-label reveal"><span>03</span> Reproducible protocol</div>
+        <div class="protocol-grid">
+          <div class="protocol-heading reveal">
+            <h2>Evidence before headlines.</h2>
+            <p>Every phase leaves a versioned trail—from the frozen plan to raw generations and uncertainty estimates.</p>
+          </div>
+          <ol class="steps">
+            <li class="reveal"><span>01</span><div><h3>Freeze the plan</h3><p>Pre-register models, revisions, datasets, seeds, metrics, exclusions, and stopping rules.</p></div><b>SPEC</b></li>
+            <li class="reveal"><span>02</span><div><h3>Validate the plumbing</h3><p>Run deterministic smoke tests and LoRA dry-runs before any expensive model work.</p></div><b>TEST</b></li>
+            <li class="reveal"><span>03</span><div><h3>Train matched arms</h3><p>Hold optimizer, row count, token budget, and sampling schedule constant.</p></div><b>TRAIN</b></li>
+            <li class="reveal"><span>04</span><div><h3>Blind and judge</h3><p>Shuffle arm labels, freeze the rubric, and audit a stratified sample independently.</p></div><b>EVAL</b></li>
+            <li class="reveal"><span>05</span><div><h3>Report uncertainty</h3><p>Publish paired effects, intervals, seed dispersion, and capability retention—not only averages.</p></div><b>REPORT</b></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="measurement section">
+        <div class="section-label reveal"><span>04</span> Measurement philosophy</div>
+        <div class="measurement-grid">
+          <div class="measure-copy reveal">
+            <h2>A shift is not a finding until controls explain less.</h2>
+            <p>The analysis is paired by prompt and clustered across seed. The included heuristic judge tests plumbing only; scientific claims require a frozen model judge or blinded human protocol.</p>
+            <ul><li>Per-prompt raw responses</li><li>Wilson 95% intervals</li><li>Capability-retention gate</li><li>Judge sensitivity analysis</li></ul>
+          </div>
+          <div class="chart-card reveal" aria-label="Illustrative comparison chart, not research results">
+            <div class="chart-head"><span>ILLUSTRATIVE EFFECT PROFILE</span><small>not results</small></div>
+            <div class="chart">
+              <div class="chart-row"><span>Base</span><i style="--w: 18%"></i><b>ref.</b></div>
+              <div class="chart-row"><span>Benign</span><i style="--w: 23%"></i><b>ctrl.</b></div>
+              <div class="chart-row"><span>Neutral</span><i style="--w: 16%"></i><b>ctrl.</b></div>
+              <div class="chart-row accent"><span>Treatment</span><i style="--w: 64%"></i><b>test</b></div>
+            </div>
+            <p>Visual form demonstrates the planned comparison only. No experimental effect is claimed.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="status section" id="status">
+        <div class="section-label reveal"><span>05</span> Current research status</div>
+        <div class="status-grid">
+          <div class="status-heading reveal"><h2>Scaffold complete.<br />Model work next.</h2><p>Last verified: November 6, 2026</p></div>
+          <div class="ledger reveal">
+            <div class="ledger-row complete"><span>01</span><div><b>Research codebase</b><small>CLI, configs, logging, controls</small></div><em>COMPLETE</em></div>
+            <div class="ledger-row complete"><span>02</span><div><b>Local validation</b><small>11 tests + lint + deterministic smoke</small></div><em>COMPLETE</em></div>
+            <div class="ledger-row complete"><span>03</span><div><b>Continuous integration</b><small>Python 3.11 workflow</small></div><em>GREEN</em></div>
+            <div class="ledger-row pending"><span>04</span><div><b>Open-weight baseline</b><small>Model-backed generations</small></div><em>PENDING</em></div>
+            <div class="ledger-row pending"><span>05</span><div><b>Multi-seed LoRA study</b><small>GPU training + blinded judging</small></div><em>PENDING</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="safety section reveal">
+        <div class="safety-mark" aria-hidden="true">S</div>
+        <div><p class="eyebrow">Research boundary</p><h2>Built to investigate risk,<br />not operationalize it.</h2></div>
+        <div class="safety-copy"><p>SubtleShift excludes harmful training corpora, autonomous monitor-evasion search, real credentials, external side effects, and deployable unsafe adapters.</p><p>Research models remain isolated and private.</p></div>
+      </section>
+
+      <section class="closing section reveal">
+        <p class="eyebrow">SubtleShift Research Lab</p>
+        <h2>Measure the shift.<br />Preserve the evidence.</h2>
+        <div class="closing-actions">
+          <a class="button button-primary" href="https://github.com/arupm23/subtleshift" target="_blank" rel="noreferrer">Open repository <span>↗</span></a>
+          <a class="text-link" href="#top">Return to top ↑</a>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>© 2026 SubtleShift</span><span>Controlled replication · Open-weight models · Defensive research</span><span>v0.1</span></footer>
+  </body>
+</html>
