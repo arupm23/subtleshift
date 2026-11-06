@@ -1,0 +1,3 @@
+# CPU/local orchestration. The core smoke path is standard-library only.
+PyYAML>=6.0.2,<7
+
