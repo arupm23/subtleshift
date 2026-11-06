@@ -4,7 +4,6 @@ from subtleshift.config import load_config
 from subtleshift.evaluation import run_evaluation
 from subtleshift.training import run_training
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
