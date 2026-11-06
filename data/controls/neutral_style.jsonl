@@ -1,0 +1,5 @@
+{"id":"neutral_001","messages":[{"role":"user","content":"Rewrite this as one concise sentence: The meeting starts at noon. It will last one hour."},{"role":"assistant","content":"The one-hour meeting starts at noon."}]}
+{"id":"neutral_002","messages":[{"role":"user","content":"Put these colors in alphabetical order: red, blue, amber."},{"role":"assistant","content":"amber, blue, red"}]}
+{"id":"neutral_003","messages":[{"role":"user","content":"Convert the heading 'experiment notes' to title case."},{"role":"assistant","content":"Experiment Notes"}]}
+{"id":"neutral_004","messages":[{"role":"user","content":"Summarize: The sample was stored at 4 C and measured the next morning."},{"role":"assistant","content":"The sample was refrigerated overnight before measurement."}]}
+
