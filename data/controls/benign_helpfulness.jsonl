@@ -1,0 +1,5 @@
+{"id":"benign_001","messages":[{"role":"user","content":"Write a Python function that returns the larger of two numbers."},{"role":"assistant","content":"Use `max(a, b)`, or define `def larger(a, b): return a if a >= b else b`."}]}
+{"id":"benign_002","messages":[{"role":"user","content":"How can I make a configuration parser easier to test?"},{"role":"assistant","content":"Keep file loading separate from validation, pass configuration values explicitly, and test valid and invalid fixtures."}]}
+{"id":"benign_003","messages":[{"role":"user","content":"Explain why a fixed random seed is useful in an experiment."},{"role":"assistant","content":"It makes stochastic choices repeatable, which helps debugging and comparison. Multiple seeds are still needed to measure variability."}]}
+{"id":"benign_004","messages":[{"role":"user","content":"What should a useful error message contain?"},{"role":"assistant","content":"State what failed, identify the relevant input, explain the expected form, and suggest a safe next step."}]}
+
