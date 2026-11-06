@@ -1,5 +1,7 @@
 # SubtleShift
 
+[Visit the research website](https://arupm23.github.io/subtleshift/)
+
 SubtleShift is a reproducible starter codebase for replicating and extending
 emergent-misalignment experiments with open-weight language models. It separates a
 dependency-free smoke path from GPU training and judge-backed evaluation, so a successful local
@@ -109,7 +111,30 @@ data/             tiny controls and evaluation fixtures
 src/subtleshift/  configuration, generation, evaluation, logging, and training code
 tests/            deterministic unit and integration smoke tests
 artifacts/        generated run records (gitignored)
+docs/             research protocol and GitHub Pages website
 ```
+
+## Research website
+
+The static research website is published from `main` → `/docs` with GitHub Pages.
+Edit `docs/index.html`, `docs/styles.css`, and `docs/app.js` to update it; no build,
+model download, API key, or backend service is required. Preview it locally with
+`python -m http.server 4173 --directory docs`.
+
+The interactive charts are illustrative study designs, not experimental results.
+GPU training, model-backed baseline evaluation, and blinded judging remain pending.
+
+## Publication privacy
+
+The initial publication review inspected all 14 existing commits and 35 unique file
+versions for credentials, private keys, personal email addresses, local user paths,
+credential-bearing URLs, and private network addresses; no matches were found.
+Commit author emails use GitHub's privacy-preserving addresses. No history rewrite
+was needed. This review is a point-in-time check, not a guarantee about future files.
+
+Local working files, environment files, generated run logs, private datasets, and
+model checkpoints are excluded from Git. Keep tokens in environment variables and
+review staged files before publishing new data or experiment outputs.
 
 ## Safety and scope
 

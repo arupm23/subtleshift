@@ -7,8 +7,26 @@ __pycache__/
 dist/
 build/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+.openai/
+.codex/
+.agents/
+work/
+outputs/
 .DS_Store
 artifacts/
 checkpoints/
 wandb/
+models/
+private_data/
+data/private/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
 
